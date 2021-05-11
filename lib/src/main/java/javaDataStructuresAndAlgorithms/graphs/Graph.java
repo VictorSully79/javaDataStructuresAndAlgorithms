@@ -1,5 +1,7 @@
 package javaDataStructuresAndAlgorithms.graphs;
 
+import javaDataStructuresAndAlgorithms.graphs.Queue.Queue;
+
 import java.util.ArrayList;
 
 
@@ -42,7 +44,7 @@ public class Graph {
         return this.vertexes.size();
     }
 
-    public ArrayList<Object> GetNeighbors(Object vertex) {
+    public ArrayList<Object> GetNeighborsNames(Object vertex) {
         int index = this.vertexes.indexOf(vertex);
         ArrayList<Object> neighbors = new ArrayList<>();
         ArrayList<Object> targetMatrix = adjacencyMatrix.get(index);

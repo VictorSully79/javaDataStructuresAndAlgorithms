@@ -1,8 +1,9 @@
 # Java Data Structures and Algorithms:
 
 
-# Features:
-7 MAY 2021
+
+### 7 MAY 2021
+### Features:
 ### Implement your own Graph. The graph should be represented as an adjacency list, and should include the following methods:
 
 ### 1. AddNode()
@@ -22,3 +23,12 @@
 - Include the weight of the connection in the returned collection
 ### 5. Size()
 - Returns the total number of nodes in the graph
+
+
+### 10 May 2021
+### Features:
+### Extend your graph object with a breadth-first traversal method that accepts a starting node. Without utilizing any of the built-in methods available to your language, return a collection of nodes in the order they were visited. Display the collection.
+
+
+
+
