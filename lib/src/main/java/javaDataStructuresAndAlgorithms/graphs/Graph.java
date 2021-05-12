@@ -1,7 +1,10 @@
 package javaDataStructuresAndAlgorithms.graphs;
 
-import javaDataStructuresAndAlgorithms.graphs.Queue.Queue;
 
+
+import javaDataStructuresAndAlgorithms.stacksAndQueues.Queue;
+
+import java.util.NoSuchElementException;
 import java.util.ArrayList;
 
 
@@ -36,7 +39,7 @@ public class Graph {
         this.adjacencyMatrix.get(idx1).set(idx2, weight);
     }
 
-    public Object GetNodes(){
+    public ArrayList<Object> GetNodes(){
         return this.vertexes;
     }
 
@@ -99,6 +102,6 @@ public class Graph {
 
     public ArrayList<ArrayList<Object>> getAdjacencyMatrix() {
         return adjacencyMatrix;
+
     }
 }
-
