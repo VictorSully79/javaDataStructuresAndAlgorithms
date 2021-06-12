@@ -1,6 +1,5 @@
 package javaDataStructuresAndAlgorithms.stacksAndQueues;
 
-import com.sun.istack.internal.NotNull;
 
 import java.util.Stack;
 
@@ -29,7 +28,7 @@ public class PseudoQueue <T> implements standardQueue {
         reverse(temp,main);
     }
 
-    public void reverse(@NotNull Stack<T> currentStack, Stack<T> targetStack) {
+    public void reverse(Stack<T> currentStack, Stack<T> targetStack) {
         while(!currentStack.isEmpty()) {
             targetStack.push(currentStack.pop());
         }

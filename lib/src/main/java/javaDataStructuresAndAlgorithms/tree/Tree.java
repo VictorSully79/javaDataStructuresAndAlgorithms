@@ -1,0 +1,127 @@
+package javaDataStructuresAndAlgorithms.tree;
+
+
+import javaDataStructuresAndAlgorithms.stacksAndQueues.Queue;
+
+import java.util.ArrayList;
+import java.util.NoSuchElementException;
+import java.util.Stack;
+
+public class Tree<T> {
+    public Node<T> root = null;
+    public ArrayList<Object> arr;
+
+    public Tree(){
+        this.arr = new ArrayList<>();
+    }
+
+    public ArrayList<Object> preOrder(){
+        ArrayList<Object> result = new ArrayList<>();
+        if(this.root == null) throw new NoSuchElementException();
+        Stack<Node> arr = new Stack();
+        arr.push(this.root);
+        while(!arr.isEmpty()){
+            Node node = arr.pop();
+            result.add(node.value);
+            if(node.right != null){
+                arr.push(node.right);
+            }
+            if(node.left != null){
+                arr.push(node.left);
+
+            }
+        }
+        return result;
+    }
+    public ArrayList<Object> preOrderRecursive(){
+        this._preOrderRecursive(this.root);
+        return arr;
+    }
+    public void _preOrderRecursive(Node node){
+        if(node == null) return;
+        this.arr.add(node.value);
+        this._preOrderRecursive(node.left);
+        this._preOrderRecursive(node.right);
+    }
+
+
+    public ArrayList<Object> inOrder(){
+        ArrayList<Object> result = new ArrayList<>();
+        if(this.root == null) throw new NoSuchElementException();
+        Queue<Node> arr = new Queue();
+        arr.enqueue(this.root);
+        while(!arr.isEmpty()){
+            Node node = arr.dequeue();
+            result.add(node);
+            if(node.left != null){
+                arr.enqueue(node.left);
+            }
+
+            if(node.right != null){
+                arr.enqueue(node.right);
+            }
+
+        }
+        return result;
+    }
+
+    public ArrayList<Object> inOrderRecursive(){
+        this._inOrderRecursive(this.root);
+        return arr;
+    }
+    public void _inOrderRecursive(Node node){
+        if(node == null)return;
+        arr.add(node.value);
+        this._inOrderRecursive(node.left);
+        this._inOrderRecursive(node.right);
+    }
+
+    public ArrayList<Object> postOrder(){
+        this._postOrder(this.root);
+        return arr;
+    }
+    private void _postOrder(Node node){
+        if(node == null)return;
+        this._postOrder(node.left);
+        this._postOrder(node.right);
+        arr.add(node.value);
+    }
+
+    @Override
+    public String toString() {
+        return "BinaryTree{" +
+                "root=" + root +
+                '}';
+    }
+
+    public void setArrVal(Object obj) {
+        this.arr.add(obj);
+    }
+
+    public ArrayList<Object> getArr() {
+        return arr;
+    }
+
+    public ArrayList<Object> breadth_first_traversal(){
+        breadth_first_traversal(root);
+        return arr;
+    }
+    public void breadth_first_traversal(Node node){
+        if(node == null)return;
+        Queue<Node> q = new Queue();
+        if(arr.size() < 1){
+            q.enqueue(node);
+        }
+        while(!q.isEmpty()){
+            Node front = q.dequeue();
+            arr.add(front.value);
+            if(front.left != null){
+                q.enqueue(front.left);
+            }
+            if(front.right != null){
+                q.enqueue(front.right);
+            }
+        }
+    }
+
+}
